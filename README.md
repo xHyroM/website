@@ -4,7 +4,7 @@
   <br>
 </h1>
 
-<h4 align="center">Source code for hyro's website, simple and modern page.</h4>
+<h4 align="center">Source code for my website, simple and modern page.</h4>
 
 <p align="center">
     <a href="https://s.xhyrom.dev/discord" alt="Discord">

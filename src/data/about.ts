@@ -136,24 +136,35 @@ export const toolkit = [
 
 export const highlights = [
   {
+    title: "International Olympiad in AI",
+    award: "Bronze Medalist",
+    desc: "Represented Slovakia 🇸🇰 as part of the country's first-ever IOAI team in Astana 🇰🇿, competing among 471 participants from 108 countries.",
+    icon: "lucide:globe",
+    featured: true,
+  },
+  {
     title: "Zenit in Programming",
-    desc: "National Winner (24/25, 25/26)",
+    award: "National Winner",
+    desc: "Seasons 2024/2025 and 2025/2026",
     icon: "lucide:award",
   },
   {
-    title: "KSI",
-    desc: "1st Place in the 2024/2025 Season",
-    icon: "lucide:trophy",
-  },
-  {
-    title: "Slovak Olympiad in Artificial Intelligence",
-    desc: "2nd Place in the 2025/2026 National Finals",
+    title: "Slovak Olympiad in AI",
+    award: "2nd Place",
+    desc: "2025/2026 National Finals",
     icon: "lucide:brain",
     href: "https://www.ncdtv.sk/olympiada-v-umelej-inteligencii/",
   },
   {
+    title: "MUNI's Correspondence Seminar in Informatics",
+    award: "1st Place",
+    desc: "Seasons 2024/2025 and 2025/2026",
+    icon: "lucide:trophy",
+  },
+  {
     title: "Tour de App",
-    desc: "3rd Place in the 2024/2025 Finals",
-    icon: "lucide:medal",
+    award: "3rd Place",
+    desc: "2024/2025 Finals",
+    icon: "lucide:smartphone",
   },
 ];

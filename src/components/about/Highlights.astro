@@ -22,18 +22,87 @@ import { highlights } from "../../data/about";
 ---
 
 <div>
-  <h3 class="text-2xl font-bold text-white mb-8">Highlights</h3>
-  <div class="space-y-4">
+  <h3 class="text-2xl font-bold text-white mb-8">Highlights & Achievements</h3>
+
+  <div class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
     {
-      highlights.map((item) => (
-        <div class="p-5 rounded-2xl bg-neutral-900/30 backdrop-blur-sm border border-white/10 hover:border-amber-400/40 hover:-translate-y-1 transition-all duration-300 flex gap-5 items-center shadow-lg">
-          <Icon name={item.icon} class="w-8 h-8 text-amber-400 shrink-0" />
-          <div>
-            <h4 class="text-white font-bold leading-snug">{item.title}</h4>
-            <p class="text-sm text-neutral-400 mt-1">{item.desc}</p>
-          </div>
-        </div>
-      ))
+      highlights.map((item) => {
+        const Tag = item.href ? "a" : "div";
+
+        return (
+          <Tag
+            href={item.href}
+            target={item.href ? "_blank" : undefined}
+            class:list={[
+              "group relative p-6 sm:p-7 rounded-3xl transition-all duration-300 flex flex-col justify-center",
+              item.featured
+                ? "md:col-span-2 bg-neutral-900/60 backdrop-blur-md border border-amber-400/20 hover:border-amber-400/40 shadow-[0_0_40px_-15px_rgba(251,191,36,0.15)]"
+                : "md:col-span-1 bg-neutral-900/30 backdrop-blur-sm border border-white/10 hover:border-amber-400/30 hover:bg-white/5 shadow-lg",
+              item.href && "cursor-pointer hover:-translate-y-1",
+            ]}
+          >
+            {item.featured && (
+              <div class="absolute inset-0 bg-linear-to-br from-amber-400/10 to-transparent opacity-50 rounded-3xl pointer-events-none" />
+            )}
+
+            <div
+              class:list={[
+                "relative z-10 flex flex-col gap-5",
+                item.featured && "sm:flex-row sm:items-start sm:gap-6",
+              ]}
+            >
+              <div
+                class:list={[
+                  "flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110",
+                  item.featured
+                    ? "w-16 h-16 rounded-2xl bg-amber-400/10 border border-amber-400/30 text-amber-400 shadow-inner"
+                    : "w-12 h-12 rounded-xl bg-white/5 border border-white/10 text-neutral-300 group-hover:text-amber-400 group-hover:border-amber-400/30",
+                ]}
+              >
+                <Icon
+                  name={item.icon}
+                  class={item.featured ? "w-8 h-8" : "w-6 h-6"}
+                />
+              </div>
+
+              <div class="flex-1">
+                <h4
+                  class:list={[
+                    "font-bold text-white leading-tight",
+                    item.featured ? "text-xl sm:text-2xl" : "text-lg",
+                  ]}
+                >
+                  {item.title}
+                </h4>
+
+                {item.award && (
+                  <div
+                    class:list={[
+                      "font-medium text-amber-400 mt-1",
+                      item.featured ? "text-base sm:text-lg" : "text-sm",
+                    ]}
+                  >
+                    {item.award}
+                  </div>
+                )}
+
+                {item.desc && (
+                  <p
+                    class:list={[
+                      "text-neutral-400 mt-3",
+                      item.featured
+                        ? "text-sm sm:text-base leading-relaxed"
+                        : "text-xs sm:text-sm leading-relaxed",
+                    ]}
+                  >
+                    {item.desc}
+                  </p>
+                )}
+              </div>
+            </div>
+          </Tag>
+        );
+      })
     }
   </div>
 </div>
